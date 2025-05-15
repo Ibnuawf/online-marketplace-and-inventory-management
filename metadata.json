@@ -1,0 +1,6 @@
+{
+  "name": "Online Marketplace and Inventory Management",
+  "description": "An online marketplace and business inventory management application with PostgreSQL, Express, and a complete companion Android Jetpack Compose app.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
