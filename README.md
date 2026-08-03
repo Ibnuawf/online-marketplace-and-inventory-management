@@ -1,6 +1,18 @@
 # Production-Quality Online Marketplace & Inventory Management
 
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+
 A robust, full-stack Online Marketplace and Business Inventory Management application designed with strict separation of concerns, secure PostgreSQL pooling, dual authentication (custom JWT and Firebase Auth), and a complete companion Android Jetpack Compose app structure.
+
+---
+
+## ✨ Tech Highlights
+
+- **Drizzle ORM + PostgreSQL**: type-safe schema, migrations via Drizzle Kit, and pooled `pg` connections.
+- **Dual authentication**: custom JWT (bcrypt-hashed credentials) and Firebase Auth ID tokens verified through a single middleware, with automatic account linking.
+- **Offline-first sync**: version-based conflict detection for the companion Android app.
+- **Render deployment**: one-click deploy via `render.yaml` (build with Vite + esbuild, serve a single Node bundle).
 
 ---
 
@@ -239,6 +251,8 @@ All routes (except `/register` and `/login`) require a valid Bearer Token (`Auth
 ### Environment Prerequisites
 Ensure that PostgreSQL is installed and running, or utilize your active Google Cloud SQL Developer instance. Configure the environment properties inside `.env` referencing `.env.example`.
 
+Firebase client settings live in `firebase-applet-config.json`; use `firebase-applet-config.example.json` as the template and fill in your own Firebase project values.
+
 ### Commands
 1. **Install Dependencies**:
    ```bash
@@ -296,7 +310,7 @@ curl -X POST http://localhost:3000/api/auth/register \
   -d '{"name": "Admin Seller", "email": "admin@store.com", "password": "securepassword"}'
 
 # (Save the "token" returned in response)
-EXPORT TOKEN="YOUR_JWT_TOKEN"
+export TOKEN="YOUR_JWT_TOKEN"
 
 # 2. Add an Inventory Product
 curl -X POST http://localhost:3000/api/products \
